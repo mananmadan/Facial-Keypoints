@@ -51,8 +51,9 @@ for i, (x,y,w,h) in enumerate(faces):
     #y -= 5
     
     just_face = cv2.resize(gray_img[y:y+h,x:x+w], dimensions)
+    just_color_face = cv2.resize(default_img[y:y+h,x:x+w], dimensions)
     cv2.rectangle(img,(x,y),(x+w,y+h),(255,0,0),1)
-    plt.imshow(just_face)
+    plt.imshow(just_color_face)
     plt.show()
     scale_val_x = w/96
     scale_val_y = h/96
@@ -62,8 +63,8 @@ for i, (x,y,w,h) in enumerate(faces):
         if i%2 == 0:
          print(i)
          print(label_point[0][i])
-         cv2.circle(just_face,(int(label_point[0][i]),int(label_point[0][i+1])),1,(255,0,0),1)
-    plt.imshow(just_face)
+         cv2.circle(just_color_face,(int(label_point[0][i]),int(label_point[0][i+1])),1,(255,0,0),1)
+    plt.imshow(just_color_face)
     plt.show()
 
 
