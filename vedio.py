@@ -11,8 +11,9 @@ import tensorflow as tf
 from tensorflow.keras.models import load_model
 
 ## load model
+# model1 is better than model
+#model = tf.keras.models.load_model('model/model1.h5',compile = False)
 model = tf.keras.models.load_model('model/model.h5',compile = False)
-
 
 def detect_points(face_img):
     me  = np.array(face_img)
