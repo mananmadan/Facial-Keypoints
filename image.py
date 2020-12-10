@@ -29,7 +29,7 @@ face_cascade = cv2.CascadeClassifier('haarcascade_frontalface_default.xml')
 dimensions = (96, 96)
 
 # Enter the path to your test image
-img = cv2.imread('face4.jpg')
+img = cv2.imread('inputs/face4.jpg')
 default_img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
 gray_img = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
 faces = face_cascade.detectMultiScale(gray_img, 1.3, 5)
@@ -51,7 +51,7 @@ for i, (x,y,w,h) in enumerate(faces):
     #y -= 5
     
     just_face = cv2.resize(gray_img[y:y+h,x:x+w], dimensions)
-    just_color_face = cv2.resize(default_img[y:y+h,x:x+w], dimensions)
+    just_color_face = cv2.resize(img[y:y+h,x:x+w], dimensions)
     cv2.rectangle(img,(x,y),(x+w,y+h),(255,0,0),1)
     plt.imshow(just_color_face)
     plt.show()
@@ -64,7 +64,9 @@ for i, (x,y,w,h) in enumerate(faces):
          print(i)
          print(label_point[0][i])
          cv2.circle(just_color_face,(int(label_point[0][i]),int(label_point[0][i+1])),1,(255,0,0),1)
-    cv2.imwrite("output.jpg",just_color_face)
+    just_color_face = cv2.resize(just_color_face,(240,240))
+    just_color_face = cv2.cvtColor(just_color_face,cv2.COLOR_BGR2RGB)
+    cv2.imwrite("output/output.jpg",just_color_face)
     plt.imshow(just_color_face)
     plt.show()
 
