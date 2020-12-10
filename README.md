@@ -19,9 +19,11 @@
 ## Output
 
 - Image Output
- ![output](output/output.jpg) 
+- ![output](output/output.jpg) 
+
+
 - Vedio Output
-![output](output/output.gif)
+- ![output](output/output.gif)
 
 ## TODO
 - Better image processing in vedio
