@@ -58,7 +58,7 @@ while True:
             if i%2 == 0:
              cv2.circle(just_color_face,(int(label_point[0][i]),int(label_point[0][i+1])),1,(255,0,0),1)
 
-        ## resize so as to be able to see
+        ## resize and fit back the isolated face in original image
         just_color_face = cv2.resize(just_color_face,(h,w))
         img[y:y+h,x:x+h] = just_color_face
     

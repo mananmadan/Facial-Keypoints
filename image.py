@@ -53,11 +53,13 @@ for i, (x,y,w,h) in enumerate(faces):
         if i%2 == 0:
          cv2.circle(just_color_face,(int(label_point[0][i]),int(label_point[0][i+1])),1,(255,0,0),1)
     
-    ## resize the image from 96,96 to be able to see 
-    just_color_face = cv2.resize(just_color_face,(240,240))
-    just_color_face = cv2.cvtColor(just_color_face,cv2.COLOR_BGR2RGB)
+    ## resize the face to original dimension and put it back in the picture 
+    just_color_face = cv2.resize(just_color_face,(h,w))
+    img[y:y+h,x:x+w] = just_color_face
+    img = cv2.cvtColor(img,cv2.COLOR_BGR2RGB)
+
     ## save the final output
-    cv2.imwrite("output/output.jpg",just_color_face)
+    cv2.imwrite("output/output.jpg",img)
     ## show the final output
-    plt.imshow(just_color_face)
+    plt.imshow(img)
     plt.show()
