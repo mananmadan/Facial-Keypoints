@@ -28,7 +28,6 @@
 - ![output](output/output.gif)
 
 ## TODO
-- Better image processing in vedio
 - Better dataset ( or clean this one)
     - Data contains only some images with 15 landmarks , rest contain only 4
     - Better model
