@@ -12,8 +12,8 @@ from tensorflow.keras.models import load_model
 
 ## load model
 # model1 is better than model
-#model = tf.keras.models.load_model('model/model1.h5',compile = False)
-model = tf.keras.models.load_model('model/model.h5',compile = False)
+model = tf.keras.models.load_model('model/model1.h5',compile = False)
+#model = tf.keras.models.load_model('model/model.h5',compile = False)
 
 def detect_points(face_img):
     me  = np.array(face_img)
@@ -59,10 +59,12 @@ while True:
              cv2.circle(just_color_face,(int(label_point[0][i]),int(label_point[0][i+1])),1,(255,0,0),1)
 
         ## resize so as to be able to see
-        just_color_face = cv2.resize(just_color_face,(480,480))
+        just_color_face = cv2.resize(just_color_face,(h,w))
+        img[y:y+h,x:x+h] = just_color_face
+    
         
         # Display the resulting frame 
-        cv2.imshow('frame', just_color_face) 
+        cv2.imshow('frame', img) 
       
         # the 'q' button is set as the 
         # quitting button you may use any 
